@@ -1,5 +1,6 @@
 package co.com.msrdo;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -17,7 +18,7 @@ import co.com.msrdo.service.ClientGreetingService;
 //@ComponentScan(useDefaultFilters = false)
 public class GreetingClientApplication {
 
-	public static final String SERVICE_URL = "http://GREETING-SERVICE";
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(GreetingClientApplication.class, args);
@@ -33,7 +34,7 @@ public class GreetingClientApplication {
 	// The service encapsulates the interaction with the micro-service.
 	@Bean
 	public ClientGreetingService helloWorldService() {
-		return new ClientGreetingService(SERVICE_URL);
+		return new ClientGreetingService();
 	}
 
 	// Create the controller, passing it the ClientGreetingService to use.

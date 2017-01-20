@@ -22,3 +22,5 @@ eureka:
 # HTTP Server
 server:
   port: 3333   # HTTP (Tomcat) port
+
+greeting-service-url: ${GREETING_SERVICE_URL:http://GREETING-SERVICE}
