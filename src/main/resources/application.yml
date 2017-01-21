@@ -15,9 +15,17 @@ error:
  
 # Discovery Server Access
 eureka:
+  instance:
+    hostname: ${DOMAIN_NAME:localhost}
+    nonSecurePort: ${DOMAIN_PORT:${server.port}}
+  
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URL:http://localhost:1111}/eureka/
+      defaultZone: ${EUREKA_URL:http://admin:password@localhost:1111}/eureka/ 
+
+security:
+  user:
+    password: ${eureka.password}
  
 # HTTP Server
 server:
